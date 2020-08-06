@@ -61,7 +61,7 @@ var ReactHTMLTableToExcel = function (_Component) {
         return null;
       }
 
-      if (document.getElementById(this.props.table).nodeType !== 1 || document.getElementById(this.props.table).nodeName !== 'TABLE') {
+      if (document.querySelector(this.props.table).nodeType !== 1 || document.querySelector(this.props.table).nodeName !== 'TABLE') {
         if (process.env.NODE_ENV !== 'production') {
           console.error('Provided table property is not html table element');
         }
@@ -69,7 +69,7 @@ var ReactHTMLTableToExcel = function (_Component) {
         return null;
       }
 
-      var table = document.getElementById(this.props.table).outerHTML;
+      var table = document.querySelector(this.props.table).outerHTML;
       var sheet = String(this.props.sheet);
       var filename = String(this.props.filename) + '.xls';
 

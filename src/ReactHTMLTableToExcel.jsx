@@ -40,7 +40,7 @@ class ReactHTMLTableToExcel extends Component {
       return null;
     }
 
-    if (document.getElementById(this.props.table).nodeType !== 1 || document.getElementById(this.props.table).nodeName !== 'TABLE') {
+    if (document.querySelector(this.props.table).nodeType !== 1 || document.querySelector(this.props.table).nodeName !== 'TABLE') {
       if (process.env.NODE_ENV !== 'production') {
         console.error('Provided table property is not html table element');
       }
@@ -48,7 +48,7 @@ class ReactHTMLTableToExcel extends Component {
       return null;
     }
 
-    const table = document.getElementById(this.props.table).outerHTML;
+    const table = document.querySelector(this.props.table).outerHTML;
     const sheet = String(this.props.sheet);
     const filename = `${String(this.props.filename)}.xls`;
 
